@@ -65,6 +65,11 @@ public class Topic_02_ex {
     	driver.findElement(By.xpath("//button[@id='send2']")).click();
     	driver.findElement(By.xpath("//li[@class='error-msg']//span"));
     }
+    @Test
+    public void TC_05_() throws InterruptedException {
+    	driver.get("http://live.techpanda.org/index.php/customer/account/login/");
+    	driver.findElement(By.xpath("//button[@id='send2']")).click();
+    }
 	//@AfterClass
 	//public void afterClass() {
 	//	driver.quit();
