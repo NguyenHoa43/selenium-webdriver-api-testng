@@ -38,13 +38,13 @@ public class Topic_16 {
 	@Test
 	public void TC_02_text() {
 		driver.get("https://www.thegioididong.com/dtdd");
-		driver.findElement(By.xpath("//strong[text()='11.490.000₫']/preceding-sibling::div[@class='box-p']/preceding-sibling::h3"));
+		driver.findElement(By.xpath("//strong[text()='12.490.000₫']/preceding-sibling::div[@class='box-p']/preceding-sibling::h3"));
 	}
 
 	@Test
 	public void TC_03() {
 		driver.get("https://www.thegioididong.com/dtdd");
-		driver.findElement(By.xpath("//strong[text()='11.490.000₫']/preceding-sibling::div[@class='prods-group']//li")).click();
+		driver.findElement(By.xpath("//strong[text()='12.490.000₫']/preceding-sibling::div[@class='prods-group']//li")).click();
 	}
 	//@AfterClass
 	//public void afterClass() {
