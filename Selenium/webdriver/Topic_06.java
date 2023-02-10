@@ -32,18 +32,18 @@ public class Topic_06 {
 	public void TC_01_Verify_Url() {
 		driver.get("http://live.techpanda.org/");
 		driver.findElement(By.xpath("//a[text()='My Account']/parent::li//ancestor::div[@class='footer-container']//following-sibling::li[@class='first']/child::a[@title='My Account']")).click();
-        driver.getCurrentUrl();
+        System.out.println(driver.getCurrentUrl());
         driver.findElement(By.xpath("//a[@class='button']")).click();
-        driver.getCurrentUrl();
+        System.out.println(driver.getCurrentUrl());
 	}
 	
 	@Test
 	public void TC_02_Verify_Title() {
 		driver.get("http://live.techpanda.org/");
 		driver.findElement(By.xpath("//a[text()='My Account']/parent::li//ancestor::div[@class='footer-container']//following-sibling::li[@class='first']/child::a[@title='My Account']")).click();
-		driver.getTitle();
+		System.out.println(driver.getTitle());
 		driver.findElement(By.xpath("//a[@class='button']/child::span")).click();
-		driver.getTitle();
+		System.out.println(driver.getTitle());
 	}
 	
 	@Test
@@ -52,9 +52,9 @@ public class Topic_06 {
 		driver.findElement(By.xpath("//a[text()='My Account']/parent::li//ancestor::div[@class='footer-container']//following-sibling::li[@class='first']/child::a[@title='My Account']")).click();
 		driver.findElement(By.xpath("//a[@class='button']/child::span")).click();
 		driver.navigate().back();
-		driver.getCurrentUrl();
+		System.out.println(driver.getCurrentUrl());
 		driver.navigate().forward();
-		driver.getTitle();	
+		System.out.println(driver.getTitle());
 	}
 	
 	@Test
