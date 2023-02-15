@@ -34,29 +34,30 @@ public class Topic_05_web_browser_p1 {
 		driver.get("http://live.techpanda.org/");
 		
 		driver.findElement(By.xpath("//div[@class='footer-container']//a[@title='My Account']")).click();
-		sleepInSecond(3);
+		sleepInSecond(2);
         Assert.assertEquals(driver.getCurrentUrl(),"http://live.techpanda.org/index.php/customer/account/login/");
         driver.findElement(By.cssSelector("a[class='button']")).click();
-        sleepInSecond(3);
+        sleepInSecond(2);
         Assert.assertEquals(driver.getCurrentUrl(),"http://live.techpanda.org/index.php/customer/account/create/");
 	}
 	
 	@Test
 	public void TC_02_Verify_Title() {
 		driver.get("http://live.techpanda.org/");
-		driver.findElement(By.xpath("//div[@class='footer-container']//a[@title='My Account']")).click();
+		driver.findElement(By.cssSelector("div[class='footer-container'] a[title='My Account']")).click();
 		sleepInSecond(3);
 		Assert.assertEquals(driver.getTitle(),"Customer Login");
+		
 		driver.findElement(By.cssSelector("a[class='button']")).click();
-		sleepInSecond(3);
+		sleepInSecond(2);
 		Assert.assertEquals(driver.getTitle(),"Create New Customer Account");
 	}
 	
 	@Test
 	public void TC_03_Navigate() {
 		driver.get("http://live.techpanda.org/");
-		driver.findElement(By.xpath("//div[@class='footer-container']//a[@title='My Account']")).click();
-		sleepInSecond(3);
+		driver.findElement(By.cssSelector("div[class='footer-container'] a[title='My Account']")).click();
+		sleepInSecond(2);
 		
 		driver.findElement(By.cssSelector("a[class='button']")).click();
 		sleepInSecond(3);
@@ -73,14 +74,14 @@ public class Topic_05_web_browser_p1 {
 	public void TC_04_Get_page_source() {
 		driver.get("http://live.techpanda.org/");
 		// click vào my account
-		driver.findElement(By.xpath("//div[@class='footer-container']//a[@title='My Account']")).click();
-		sleepInSecond(3);
+		driver.findElement(By.cssSelector("div[class='footer-container'] a[title='My Account']")).click();
+		sleepInSecond(2);
 		
 		// verify page HTML có chứa 1 chuỗi mong muốn
 		Assert.assertTrue(driver.getPageSource().contains("Login or Create an Account "));
 		
 		driver.findElement(By.cssSelector("a[class='button']")).click();
-		sleepInSecond(3);
+		sleepInSecond(2);
 		
 		Assert.assertTrue(driver.getPageSource().contains("Create an Account"));
 		
