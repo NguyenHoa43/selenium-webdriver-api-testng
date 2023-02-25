@@ -114,8 +114,41 @@ public class Topic_07_TextBox_TextArea {
 	}
 	
 	@Test
-	public void TC_02_Verify_Employee() {
+	public void TC_02_Verify_Register() {
+		driver.get("http://live.techpanda.org/");
 		
+		driver.findElement(By.xpath("//div[@class='footer-container']//a[text()='My Account']")).click();
+		sleepInSecond(4);
+		
+		driver.findElement(By.cssSelector("div.buttons-set a.button")).click();
+		sleepInSecond(4);
+		
+		driver.findElement(By.cssSelector("input#firstname")).sendKeys(firstName);
+		driver.findElement(By.cssSelector("input#lastname")).sendKeys(lastName);
+		driver.findElement(By.cssSelector("input#email_address")).sendKeys(emailAddress);
+		driver.findElement(By.cssSelector("input#password")).sendKeys(passWords);
+		driver.findElement(By.cssSelector("input#confirmation")).sendKeys(passWords);
+		
+		driver.findElement(By.cssSelector("input#is_subscribed")).click();
+		driver.findElement(By.xpath("//button[@class='button']//span[text()='Register']")).click();
+		sleepInSecond(3);
+		
+		Assert.assertEquals(driver.findElement(By.cssSelector("li.success-msg")).getText(),"Thank you for registering with Main Website Store.");
+		Assert.assertTrue(driver.findElement(By.xpath("//h3[text()='Contact Information']/parent::div/following-sibling::div/p")).isDisplayed(),firstName + " " + lastName + " " + emailAddress);
+		
+		driver.findElement(By.xpath("//div[@class='account-cart-wrapper']//span[text()='Account']")).click();
+		driver.findElement(By.xpath("//a[text()='Log Out']")).click();
+		
+		Assert.assertEquals(driver.getCurrentUrl(),"http://live.techpanda.org/index.php/customer/account/logoutSuccess/");	
+		
+		driver.findElement(By.xpath("//div[@class='footer-container']//a[text()='My Account']")).click();
+		sleepInSecond(4);
+		
+		driver.findElement(By.cssSelector("input#email")).sendKeys(emailAddress);
+		driver.findElement(By.cssSelector("input#pass")).sendKeys(passWords);
+		driver.findElement(By.cssSelector("button#send2")).click();
+		
+		Assert.assertEquals(driver.getCurrentUrl(),"http://live.techpanda.org/index.php/customer/account/index/");
 	}
 	
 	public void sleepInSecond(long timeInSecond) {
