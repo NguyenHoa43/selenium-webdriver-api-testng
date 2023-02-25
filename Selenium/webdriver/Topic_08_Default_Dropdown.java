@@ -25,7 +25,7 @@ public class Topic_08_Default_Dropdown {
 	String osName = System.getProperty("os.name");
 	String emailAddress, firstName, lastName, passWords, fullName;
 	String employeeID, passpostNumber, commentInput, companyName, dayBirth, mounthBirth, yearBirth;
-	
+	String countryName, provinceName, addressName, cityName, postalCode, phoneNumber;
 
 
 	@BeforeClass
@@ -43,18 +43,24 @@ public class Topic_08_Default_Dropdown {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		
 		
-		emailAddress = "NguyenHoa" + rand.nextInt(9999) + "@gmail.com";
-		firstName = "Nguyen";
-		lastName = "Hoa";
+		emailAddress = "elonmsut" + rand.nextInt(9999) + "@gmail.com";
+		firstName = "elon";
+		lastName = "must";
 		fullName = firstName + " " + lastName;
 		passWords = "Hoa123!@#";
 		employeeID = String.valueOf(rand.nextInt(999));
 		passpostNumber = "40517-402-967202";
 		commentInput = "Ván ô tim là loại ván công nghiệp được ứng dụng";
-		companyName = " Love Company";
+		companyName = "Love Company";
 		dayBirth = "5";
 		mounthBirth = "January";
 		yearBirth = "1997";
+		countryName = "United States";
+		provinceName = "Arizona";
+		addressName = "7350 W (West) CAMINO SAN XAVIER, GLENDALE, AZ 85308-0350";
+		postalCode = "85308";
+		phoneNumber = "(623) 561-1000";
+		cityName = "Glendale";
 		
 		
 		
@@ -74,6 +80,10 @@ public class Topic_08_Default_Dropdown {
 		new Select(driver.findElement(By.xpath("//label[text()='Date of birth:']/parent::div//select[@name='DateOfBirthDay']"))).selectByVisibleText(dayBirth);
 		new Select(driver.findElement(By.xpath("//label[text()='Date of birth:']/parent::div//select[@name='DateOfBirthMonth']"))).selectByVisibleText(mounthBirth);
 		new Select(driver.findElement(By.xpath("//label[text()='Date of birth:']/parent::div//select[@name='DateOfBirthYear']"))).selectByVisibleText(yearBirth);
+		
+		Assert.assertFalse(new Select(driver.findElement(By.xpath("//label[text()='Date of birth:']/parent::div//select[@name='DateOfBirthDay']"))).isMultiple());
+		Assert.assertFalse(new Select(driver.findElement(By.xpath("//label[text()='Date of birth:']/parent::div//select[@name='DateOfBirthMonth']"))).isMultiple());
+		Assert.assertFalse(new Select(driver.findElement(By.xpath("//label[text()='Date of birth:']/parent::div//select[@name='DateOfBirthYear']"))).isMultiple());
 		
 		driver.findElement(By.id("Email")).sendKeys(emailAddress);
 		driver.findElement(By.id("Company")).sendKeys(companyName);
@@ -104,8 +114,33 @@ public class Topic_08_Default_Dropdown {
 	}
 	
 	@Test
-	public void TC_02_Verify_Register() {
+	public void TC_02_Add_Address() {
+		driver.findElement(By.xpath("//div[@class='listbox']//a[text()='Addresses']")).click();
+		sleepInSecond(3);
 		
+		driver.findElement(By.cssSelector(".add-address-button")).click();
+		sleepInSecond(3);
+		
+		driver.findElement(By.id("Address_FirstName")).sendKeys(firstName);
+		driver.findElement(By.id("Address_LastName")).sendKeys(lastName);
+		driver.findElement(By.id("Address_Email")).sendKeys(emailAddress);
+		driver.findElement(By.id("Address_Company")).sendKeys(companyName);
+		new Select(driver.findElement(By.id("Address_CountryId"))).selectByVisibleText(countryName);
+		new Select(driver.findElement(By.xpath("//label[text()='State / province:']/following::select"))).selectByVisibleText(provinceName);
+		driver.findElement(By.id("Address_City")).sendKeys(cityName);
+		driver.findElement(By.id("Address_Address1")).sendKeys(addressName);
+		driver.findElement(By.id("Address_ZipPostalCode")).sendKeys(postalCode);
+		driver.findElement(By.id("Address_PhoneNumber")).sendKeys(phoneNumber);
+		
+		driver.findElement(By.xpath("//button[text()='Save']")).click();
+		sleepInSecond(3);
+		
+		Assert.assertEquals(driver.findElement(By.cssSelector("li.name")).getText(),firstName + " " + lastName);
+		Assert.assertEquals(driver.findElement(By.cssSelector("li.email")).getText(),"Email:" + " " + emailAddress);
+		Assert.assertEquals(driver.findElement(By.cssSelector("li.phone")).getText(),"Phone number:" + " " + phoneNumber);
+		Assert.assertEquals(driver.findElement(By.cssSelector("li.company")).getText(),companyName);
+		Assert.assertEquals(driver.findElement(By.cssSelector("li.address1")).getText(),addressName);
+		Assert.assertEquals(driver.findElement(By.cssSelector("li.country")).getText(),countryName);
 	}
 	
 	public void sleepInSecond(long timeInSecond) {
