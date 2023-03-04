@@ -38,7 +38,7 @@ public class Topic_09_Drop_down_list_customs {
 		
 	}
 
-	//@Test
+	@Test
 	public void TC_01_JQuery() {
 		driver.get("https://jqueryui.com/resources/demos/selectmenu/default.html");
 		
@@ -66,7 +66,7 @@ public class Topic_09_Drop_down_list_customs {
 		
 	
 
-	//@Test
+	@Test
 	public void TC_02_() {
 		// 1- click vào 1 thẻ bất kì để làm sao cho nó xổ ra hết ca item của dropdown
 				driver.findElement(By.cssSelector("span#speed-button")).click();
@@ -92,7 +92,7 @@ public class Topic_09_Drop_down_list_customs {
 				}
 	}
 
-	//@Test
+	@Test
 	public void TC_03_() {
 		driver.get("https://jqueryui.com/resources/demos/selectmenu/default.html");
 		
@@ -117,7 +117,7 @@ public class Topic_09_Drop_down_list_customs {
 		Assert.assertEquals(driver.findElement(By.cssSelector("span#salutation-button>span.ui-selectmenu-text")).getText(), "Other");
 	}
 	
-	//@Test
+	@Test
 	public void TC_04_VueJS() {
 		driver.get("https://mikerodham.github.io/vue-dropdowns/");
 		
@@ -134,7 +134,7 @@ public class Topic_09_Drop_down_list_customs {
 		Assert.assertEquals(driver.findElement(By.cssSelector("li.dropdown-toggle")).getText(), "Second Option");
 	}
 	
-	//@Test
+	@Test
 	public void TC_05_Dropdown_List_example() {
 		driver.get("http://opac.nlv.gov.vn/pages/opac/wpid-home.html");
 		
