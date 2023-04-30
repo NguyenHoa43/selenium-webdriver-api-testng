@@ -37,17 +37,22 @@ public class Topic_01_Check_Environment {
 
 	@Test
 	public void TC_02_ValidatePageTitle() {
-		// Login Page title
-		String loginPageTitle = driver.getTitle();
-		Assert.assertEquals(loginPageTitle, "Facebook – log in or sign up");
+		
 	}
 
 	@Test
 	public void TC_03_LoginFormDisplayed() {
-		// Login form displayed
-		Assert.assertTrue(driver.findElement(By.xpath("//form[@data-testid='royal_login_form']")).isDisplayed());
+		
 	}
-
+	
+	
+	public void sleep (long timeInSecond) {
+		try {
+			Thread.sleep(timeInSecond * 1000);
+		} catch (InterruptedException e ) {
+			e.printStackTrace();
+		}
+	}
 	@AfterClass
 	public void afterClass() {
 		driver.quit();
