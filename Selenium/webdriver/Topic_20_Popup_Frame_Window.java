@@ -39,7 +39,7 @@ public class Topic_20_Popup_Frame_Window {
 		
 	}
 
-	//@Test
+	@Test
 	public void TC_01() {
 		driver.get("https://ngoaingu24h.vn/");
 		
@@ -71,7 +71,7 @@ public class Topic_20_Popup_Frame_Window {
 		
 	}
 
-	//@Test
+	@Test
 	public void TC_02_Fixed_Not_In_Dom_Tiki() {
 		driver.get("https://tiki.vn/");
 		sleep(5);
@@ -100,7 +100,7 @@ public class Topic_20_Popup_Frame_Window {
 		Assert.assertEquals(driver.findElements(loginPopup).size(), 0);
 	}
 
-	//@Test
+	@Test
 	public void TC_03_Fixed_Not_In_Dom_Tiki() {
 		driver.get("https://tiki.vn/");
 		By loginPopup = By.cssSelector("div.ReactModal__Content");
@@ -118,7 +118,7 @@ public class Topic_20_Popup_Frame_Window {
 
 	}
 	
-	//@Test
+	@Test
 	public void TC_04_Fixed_Not_In_DOM_Facebook() {
 		driver.get("https://www.facebook.com/");
 		sleep(3);
@@ -157,7 +157,7 @@ public class Topic_20_Popup_Frame_Window {
 	// Nếu như nó hiện thị thì mình cần thao tác lên popup -> đóng nó đi để qua step tiếp theo
 	// khi mà đóng nó lại thì có thể refresh tran nó hiện lên lại / hoặc là không
 	// Nếu như nó không hiện thị thì qua step tiếp theo luôn
-	//@Test
+	@Test
 	public void TC_05_Ramdom_In_Dom_java_code_geeks() {
 		driver.get("https://www.javacodegeeks.com/");
 		sleep(10);
@@ -184,7 +184,7 @@ public class Topic_20_Popup_Frame_Window {
 		
 	}
 	
-	//@Test
+	@Test
 	public void TC_06_IFRAME_kyna_english() {
 		driver.get("https://skills.kynaenglish.vn/");
 		sleep(4);
@@ -233,7 +233,7 @@ public class Topic_20_Popup_Frame_Window {
 		
 	}
 	
-	//@Test
+	@Test
 	public void TC_07_hdfc_bank() {
 		driver.get("https://netbanking.hdfcbank.com/netbanking/");
 		sleep(5);
@@ -248,7 +248,7 @@ public class Topic_20_Popup_Frame_Window {
 		driver.findElement(By.cssSelector("input#keyboard")).sendKeys("john20232022");
 	}
 	
-	//@Test
+	@Test
 	public void TC_08_Window() {
 		driver.get("https://automationfc.github.io/basic-form/index.html");
 		// Windows/ Tab có 2 hàm lấy ra ID của Window/tab đó 
@@ -294,7 +294,7 @@ public class Topic_20_Popup_Frame_Window {
 		 
 		 // case 2 : sẽ có nhiều hơn 2 window và 2 tab trường hợp này ít gặp
 		 }
-	//@Test
+	@Test
 	public void TC_09_Short_code_Switch_Window_tab() {
 		driver.get("https://automationfc.github.io/basic-form/index.html");
 		
@@ -377,10 +377,10 @@ public class Topic_20_Popup_Frame_Window {
 		}
 			}
 		
-	//@AfterClass
-	//public void afterClass() {
-	//	driver.quit();
-	//}
+	@AfterClass
+	public void afterClass() {
+		driver.quit();
+	}
 }
 
 
