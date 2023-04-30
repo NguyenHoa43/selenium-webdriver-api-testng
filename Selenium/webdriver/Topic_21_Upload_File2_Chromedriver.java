@@ -7,14 +7,13 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Topic_21_Upload_File {
+public class Topic_21_Upload_File2_Chromedriver {
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
 	String osName = System.getProperty("os.name");
@@ -31,18 +30,18 @@ public class Topic_21_Upload_File {
 	@BeforeClass
 	public void beforeClass() {
 		if (osName.contains("Windows")) {
-			System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
+			System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
 		} else {
 			System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
 		}
 
-		driver = new ChromeDriver();
+		driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		
 	}
 
-	@Test
+	//@Test
 	public void TC_01_UpLoad_Sigle_File() {
 		driver.get("https://blueimp.github.io/jQuery-File-Upload/");
 		
@@ -59,8 +58,8 @@ public class Topic_21_Upload_File {
 		Assert.assertTrue(driver.findElement(By.xpath("//p[@class='name']/a[text()='" + hinhOne + "']")).isDisplayed());
 	}
 
-	@Test
-	public void TC_02_Upload_Sigle_File_session2() {
+	//@Test
+	public void TC_02_Upload_Sigle_File_sesion2() {
 		driver.get("https://blueimp.github.io/jQuery-File-Upload/");
 		
 		By uploadFileBy = By.xpath("//input[@type='file']");
