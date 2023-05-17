@@ -89,13 +89,6 @@ public class Topic_25_Page_Ready {
 		}
 	}
 	
-	
-	
-	private WebElement findElement(By cssSelector) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	public boolean isPageLoadedSuccess() {
 		WebDriverWait explicitWait = new WebDriverWait(driver, 30);
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
