@@ -40,7 +40,7 @@ public class Topic_19_Action_part_II2_chromedriver {
 		
 	}
 
-	@Test
+	//@Test
 	public void TC_01_Click_And_Hold() {
 		driver.get("https://automationfc.github.io/jquery-selectable/");
 		
@@ -57,7 +57,7 @@ public class Topic_19_Action_part_II2_chromedriver {
 		Assert.assertEquals(listSelectedNumber.size(), 8);
 	}
 
-	@Test
+	//@Test
 	public void TC_02_Click_And_Hold_Ramdom() {
 		driver.get("https://automationfc.github.io/jquery-selectable/");
 		
@@ -85,7 +85,7 @@ public class Topic_19_Action_part_II2_chromedriver {
 		
 	}
 
-	@Test
+	//@Test
 	public void TC_03_Double_Click() {
 		driver.get("https://automationfc.github.io/basic-form/index.html");
 		
@@ -101,7 +101,7 @@ public class Topic_19_Action_part_II2_chromedriver {
 		
 	}
 	
-	@Test
+	//@Test
 	public void TC_04_Right_Click() {
 		driver.get("http://swisnl.github.io/jQuery-contextMenu/demo.html");
 		
@@ -128,7 +128,7 @@ public class Topic_19_Action_part_II2_chromedriver {
 		
 	}
 	
-	@Test
+	//@Test
 	public void TC_05_Drag_And_Drop_HTML4() {
 		driver.get("https://automationfc.github.io/kendo-drag-drop/");
 		
@@ -158,6 +158,11 @@ public class Topic_19_Action_part_II2_chromedriver {
 		
 		Assert.assertEquals(bigCircleHexa.toUpperCase(), "#03A9F4");
 		
+	}
+	@Test
+	public void TC_01() {
+		driver.get("https://api.orangehrm.com/");
+
 	}
 	
 	public void sleep (long timeInSecond) {

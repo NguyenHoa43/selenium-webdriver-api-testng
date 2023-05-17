@@ -1,5 +1,6 @@
 package webdriver;
 
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -45,13 +46,18 @@ public class Topic_01_Check_Environment {
 		
 	}
 	
-	
+	// hàm Wait hard
 	public void sleep (long timeInSecond) {
 		try {
 			Thread.sleep(timeInSecond * 1000);
 		} catch (InterruptedException e ) {
 			e.printStackTrace();
 		}
+	}
+	// hàm tính thời gian chạy 1 step
+	public String timestamp() {
+		Date date = new Date();
+		return date.toString();
 	}
 	@AfterClass
 	public void afterClass() {
