@@ -1,6 +1,7 @@
 package webdriver;
 
 import java.io.File;
+import java.sql.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -184,6 +185,7 @@ public class Topic_23_Explicit_Wait {
 		Assert.assertTrue(explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='contentName' and text()='" + picterTwo + "']"))).isDisplayed());
 		Assert.assertTrue(explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='contentName' and text()='" + picterThree + "']"))).isDisplayed());
 	}
+	
 	@AfterClass
 	public void afterClass() {
 		driver.quit();
